@@ -4,7 +4,6 @@ class Solution:
         ret = 0
         for i in range(1, len(gain) + 1):
             alt += gain[i - 1]
-            # print(alt, gain[i])
             ret = max(ret, alt)
 
         return ret
