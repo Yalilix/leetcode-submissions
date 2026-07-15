@@ -11,9 +11,6 @@ public:
             k++;
         }
 
-        cout << sumOdd << endl;
-        cout << sumEven << endl;
-
         return gcd(sumEven, sumOdd);
     }
 };
