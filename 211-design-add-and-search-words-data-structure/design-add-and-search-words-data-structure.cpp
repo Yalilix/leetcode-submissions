@@ -25,17 +25,17 @@ public:
     }
     
     bool search(string word) {
-        return dfs(word, 0, root);
+        return dfs(word, 0 , root);
     }
 
-private: 
-    bool dfs(string word, int j, TrieNode* root) {
+private:
+    bool dfs(string word, int i, TrieNode* root) {
         TrieNode* cur = root;
-        for (int i = j; i < word.size(); i++) {
-            char c = word[i];
+        for (int j = i; j < word.size(); j++) {
+            char c = word[j];
             if (c == '.') {
                 for (auto child : cur->children) {
-                    if (child != nullptr && dfs(word, i + 1, child)) return true;
+                    if (child != nullptr and dfs(word, j + 1, child)) return true;
                 }
                 return false;
             } else {
@@ -45,6 +45,7 @@ private:
                 cur = cur->children[c - 'a'];
             }
         }
+
         return cur->end;
     }
 };
