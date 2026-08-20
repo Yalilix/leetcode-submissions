@@ -9,7 +9,7 @@ public:
             int cur = nums[m];
 
             ret = min(cur, ret);
-            if (nums[l] <= cur) {
+            if (nums[l] < cur) {
                 if (nums[l] < nums[r]) {
                     r = m - 1;
                 } else {
