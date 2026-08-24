@@ -1,9 +1,8 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        if (nums.size() == 1) return nums[0];
         int curMin = 1, curMax = 1;
-        int ret = 0;
+        int ret = nums[0];
 
         for (auto& n : nums) {
             if (n == 0) {
