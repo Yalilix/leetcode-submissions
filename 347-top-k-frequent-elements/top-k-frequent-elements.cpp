@@ -1,23 +1,27 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-        map<int, int> hm;
-        for (auto n : nums) {
-            hm[n]++;
-        }   
+        int n = nums.size();
+        map<int, int> count;
 
-        vector<vector<int>> freq(nums.size() + 1);
-        for (auto [key, val] : hm) {
-            freq[val].push_back(key);
+        for (auto num : nums) {
+            count[num]++;
+        }
+
+        vector<vector<int>> freq(n + 1);
+        for (auto [k, v] : count) {
+            freq[v].push_back(k);
         }
 
         vector<int> ret;
-        for (int i = nums.size(); i > 0; i--) {
-            for (auto key : freq[i]) {
-                ret.push_back(key);
-                k--;
+
+        for (int i = n; i >= 0; i--) {
+            for (auto f : freq[i]) {
+                if (k) {
+                    ret.push_back(f);
+                    k--;
+                }
             }
-            if (k == 0) return ret; 
         }
 
         return ret;
