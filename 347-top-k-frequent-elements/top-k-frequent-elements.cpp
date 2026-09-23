@@ -17,11 +17,11 @@ public:
 
         for (int i = n; i >= 0; i--) {
             for (auto f : freq[i]) {
-                if (k) {
-                    ret.push_back(f);
-                    k--;
-                }
+                ret.push_back(f);
+                k--;
             }
+
+            if (!k) break;
         }
 
         return ret;
